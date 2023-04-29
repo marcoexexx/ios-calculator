@@ -95,16 +95,16 @@ function show(num, display) {
     formula = "";
     document.querySelector(".ac").childNodes[0].textContent = "AC";
     return;
-  } else if (!Number(display) && display !== "+/-" && display !== "=") { // if opeartor
+  } else if (!Number(display) && display !== "+/-" && display !== "=" && display !== "0") { // if opeartor
     operator = num;
     addOpeartor(operator);
     console.log(formula)
   } else if (!Number(display) && display === "+/-") { // if +/- opeartor
     if (numElement.value.startsWith("-")) numElement.value = numElement.value.slice(1);
     else numElement.value = "-"+numElement.value;
-  } else if (Number(display)) {
+  } else if (Number(display) || display === "0") {
     document.querySelector(".ac").childNodes[0].textContent = "C";
-    if (numElement.value === "0") numElement.value = numElement.value.slice(1);
+    if (numElement.value.startsWith("0")) numElement.value = numElement.value.slice(1);
     if (operator) numElement.value = "";
 
     numElement.value = numberFormat((numElement.value + display).replaceAll(",", ""));
