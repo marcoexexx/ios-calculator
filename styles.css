@@ -58,6 +58,7 @@
   height: 20px;
   padding: 30px;
   transition: background .3s;
+  cursor: pointer;
 }
 
 .btn:active {
